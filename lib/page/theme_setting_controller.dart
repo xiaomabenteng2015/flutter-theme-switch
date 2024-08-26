@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../util/cache_data.dart';
+
 class ThemeSettingsController extends GetxController {
   final currentThemeIndex = 0.obs;
 
@@ -24,26 +26,32 @@ class ThemeSettingsController extends GetxController {
   void changeTheme(BuildContext context, int themeIndex) {
     ThemeData themeData;
     ThemeMode themeMode;
+    String themeType = "";
     switch (themeIndex) {
       case 0: //跟隨系統
         themeData = MediaQuery.of(context).platformBrightness == Brightness.dark ? darkTheme : lightTheme;
         themeMode = ThemeMode.system;
+        themeType = MediaQuery.of(context).platformBrightness == Brightness.dark? "dark":"light";
         break;
       case 1: //浅色模式
         themeData = lightTheme;
         themeMode = ThemeMode.light;
+        themeType = "light";
         break;
       case 2: //深色模式
         themeData = darkTheme;
         themeMode = ThemeMode.dark;
+        themeType = "dark";
         break;
       default:
         themeData = MediaQuery.of(context).platformBrightness == Brightness.dark ? darkTheme : lightTheme;
         themeMode = ThemeMode.system;
+        themeType = MediaQuery.of(context).platformBrightness == Brightness.dark? "dark":"light";
         break;
     }
     //保存到本地
-    // AppBox.shared.theme = themeIndex;
+    CacheData.getInstance().setThemeType(themeType);
+
     currentThemeIndex.value = themeIndex;
     Get.changeTheme(themeData);
     Get.changeThemeMode(themeMode);
@@ -100,7 +108,7 @@ ThemeData lightTheme = ThemeData(
   primaryColor: Colors.white,
   colorScheme: const ColorScheme.light(
     primary: Colors.white,
-    onPrimary: Colors.red,
+    onPrimary: Colors.white,
   ),
   appBarTheme: AppBarTheme(
     backgroundColor: Colors.white,
