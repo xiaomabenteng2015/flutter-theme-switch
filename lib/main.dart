@@ -40,17 +40,28 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title,
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
-              color: Theme.of(context).colorScheme.onSecondary,
-            )),
-        // backgroundColor: Theme.of(context).colorScheme.secondary,
+        title: Text(title),
       ),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 12,
+                  ),
+                  child: const Text(
+                    '纯原生文本 配色',
+                  ),
+                ),
+                TextButton(onPressed: (){}, child: const Text('TextButton'))
+              ],
+            ),
+            const SizedBox(height: 20),
             Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 12,

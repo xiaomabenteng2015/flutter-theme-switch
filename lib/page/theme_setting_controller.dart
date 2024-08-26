@@ -1,5 +1,4 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -105,14 +104,10 @@ class ThemeSettingsController extends GetxController {
 
 ThemeData lightTheme = ThemeData(
   useMaterial3: true,
-  primaryColor: Colors.white,
-  colorScheme: const ColorScheme.light(
-    primary: Colors.white,
-    onPrimary: Colors.white,
-  ),
+  colorScheme: flexSchemeLight,
   appBarTheme: AppBarTheme(
-    backgroundColor: Colors.white,
-    foregroundColor: Colors.green,
+    // backgroundColor: Colors.white,
+    // foregroundColor: Colors.green,
     systemOverlayStyle: SystemUiOverlayStyle(
       systemStatusBarContrastEnforced: false,
       statusBarColor: Colors.transparent,
@@ -140,14 +135,10 @@ ThemeData lightTheme = ThemeData(
 
 ThemeData darkTheme = ThemeData(
   useMaterial3: true,
-  primaryColor: Colors.black,
-  colorScheme: const ColorScheme.dark(
-    primary: Colors.black,
-    onPrimary: Colors.black,
-  ),
+  colorScheme: flexSchemeDark,
   appBarTheme: const AppBarTheme(
-    backgroundColor: Colors.black,
-    foregroundColor: Colors.green,
+    // backgroundColor: Colors.black,
+    // foregroundColor: Colors.green,
     systemOverlayStyle: SystemUiOverlayStyle(
       systemStatusBarContrastEnforced: true,
       statusBarColor: Colors.black,
@@ -160,9 +151,76 @@ ThemeData darkTheme = ThemeData(
     ),
   ),
   textTheme: TextTheme(
-    displayLarge: const TextStyle(fontSize: 72, fontWeight: FontWeight.bold, color: Colors.amber),
-    titleLarge: GoogleFonts.oswald(fontSize: 30, fontStyle: FontStyle.italic, color: Colors.amber),
+    displayLarge: const TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
+    titleLarge: GoogleFonts.oswald(fontSize: 30, fontStyle: FontStyle.italic),
     bodyMedium: GoogleFonts.merriweather(),
     displaySmall: GoogleFonts.pacifico(),
   ),
 );
+
+// Light and dark ColorSchemes made by FlexColorScheme v7.3.1.
+// These ColorScheme objects require Flutter 3.7 or later.
+const ColorScheme flexSchemeLight = ColorScheme(
+  brightness: Brightness.light,
+  primary: Color(0xff006876),
+  onPrimary: Color(0xffE20000),
+  primaryContainer: Color(0xffa1efff),
+  onPrimaryContainer: Color(0xff0e1414),
+  secondary: Color(0xff476365),
+  onSecondary: Color(0xffffffff),
+  secondaryContainer: Color(0xffcae8ea),
+  onSecondaryContainer: Color(0xff111313),
+  tertiary: Color(0xff585c82),
+  onTertiary: Color(0xffffffff),
+  tertiaryContainer: Color(0xffdfe0ff),
+  onTertiaryContainer: Color(0xff131314),
+  error: Color(0xffba1a1a),
+  onError: Color(0xffffffff),
+  errorContainer: Color(0xffffdad6),
+  onErrorContainer: Color(0xff141212),
+  surface: Color(0xfff8fafb),
+  onSurface: Color(0xff090909),
+  surfaceContainerHighest: Color(0xffe0e6e7),
+  onSurfaceVariant: Color(0xff111212),
+  outline: Color(0xff7c7c7c),
+  outlineVariant: Color(0xffc8c8c8),
+  shadow: Color(0xff000000),
+  scrim: Color(0xff000000),
+  inverseSurface: Color(0xff101313),
+  onInverseSurface: Color(0xfff5f5f5),
+  inversePrimary: Color(0xff90dbe5),
+  surfaceTint: Color(0xff006876),
+);
+
+const ColorScheme flexSchemeDark = ColorScheme(
+  brightness: Brightness.dark,
+  primary: Color(0xff44d8f1),
+  onPrimary: Color(0xff091414),
+  primaryContainer: Color(0xff004e59),
+  onPrimaryContainer: Color(0xffdfeced),
+  secondary: Color(0xffaeccce),
+  onSecondary: Color(0xff111414),
+  secondaryContainer: Color(0xff304b4d),
+  onSecondaryContainer: Color(0xffe7ebeb),
+  tertiary: Color(0xffc0c3ef),
+  onTertiary: Color(0xff131314),
+  tertiaryContainer: Color(0xff404468),
+  onTertiaryContainer: Color(0xffe9eaf0),
+  error: Color(0xffffb4ab),
+  onError: Color(0xff141211),
+  errorContainer: Color(0xff93000a),
+  onErrorContainer: Color(0xfff6dfe1),
+  surface: Color(0xff131b1c),
+  onSurface: Color(0xffeceded),
+  surfaceContainerHighest: Color(0xff334245),
+  onSurfaceVariant: Color(0xffdfe1e1),
+  outline: Color(0xff767d7d),
+  outlineVariant: Color(0xff2c2e2e),
+  shadow: Color(0xff000000),
+  scrim: Color(0xff000000),
+  inverseSurface: Color(0xfff5fdfe),
+  onInverseSurface: Color(0xff131313),
+  inversePrimary: Color(0xff2b6b76),
+  surfaceTint: Color(0xff44d8f1),
+);
+
